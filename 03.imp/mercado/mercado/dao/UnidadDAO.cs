@@ -16,14 +16,16 @@ namespace mercado.dao
             using (SqlConnection conn = DAOFactory.getConnection())
             {
                 SqlCommand cmd = new SqlCommand("select id,nombre from unidad", conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                Unidad u;
-                while (reader.Read())
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    u = new Unidad();
-                    u.id = reader.GetString(0);
-                    u.nombre = reader.GetString(1);
-                    lista.Add(u);
+                    Unidad u;
+                    while (reader.Read())
+                    {
+                        u = new Unidad();
+                        u.id = reader.GetString(0);
+                        u.nombre = reader.GetString(1);
+                        lista.Add(u);
+                    }
                 }
             }
             return lista;

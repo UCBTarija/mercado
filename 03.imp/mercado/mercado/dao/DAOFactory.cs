@@ -21,5 +21,10 @@ namespace mercado.dao
         {
             return new UnidadDAO();
         }
+
+        public static ProductoDAO getProductoDAO()
+        {
+            return new ProductoDAO();
+        }
     }
 }

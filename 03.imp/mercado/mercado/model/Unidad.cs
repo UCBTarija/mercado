@@ -12,7 +12,7 @@ namespace mercado.model
         private string _id;
         public string id {
             get { return _id; }
-            set { this.id = value; }
+            set { this._id = value; }
         }
 
         private string _nombre;

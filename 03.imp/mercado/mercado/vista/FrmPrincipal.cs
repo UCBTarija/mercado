@@ -1,5 +1,6 @@
 ﻿using mercado.dao;
 using mercado.model;
+using mercado.model.vo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,16 +13,19 @@ using System.Windows.Forms;
 
 namespace mercado
 {
-    public partial class Form1 : Form
+    public partial class FrmPrincipal : Form
     {
-        public Form1()
+        public FrmPrincipal()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<Unidad> lsita = Unidad.getAll();
+            List<ProductoTO> lista = Producto.getAll("xxx");
+            BindingSource bs = new BindingSource();
+            bs.DataSource = lista;
+            dataGridView1.DataSource = bs;
 
         }
     }
