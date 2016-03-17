@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\database.sql" />
+    <Content Include="data\datos.sql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="vista\producto\" />
