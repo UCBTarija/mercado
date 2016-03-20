@@ -59,6 +59,7 @@
             this.listaDeProductosToolStripMenuItem.Name = "listaDeProductosToolStripMenuItem";
             this.listaDeProductosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.listaDeProductosToolStripMenuItem.Text = "Lista de productos...";
+            this.listaDeProductosToolStripMenuItem.Click += new System.EventHandler(this.listaDeProductosToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -68,7 +69,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmPrincipal";
             this.Text = "Mercado";
             this.menuStrip1.ResumeLayout(false);

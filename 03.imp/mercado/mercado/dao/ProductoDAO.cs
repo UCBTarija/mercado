@@ -1,4 +1,5 @@
-﻿using mercado.model.vo;
+﻿using mercado.model;
+using mercado.model.vo;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -27,8 +28,8 @@ namespace mercado.dao
                     FROM producto
 	                    JOIN marca ON marca.id = producto.marca_id
 	                    JOIN categoria ON categoria.id = producto.categoria_id
-                    WHERE codigo like @TEXTO
-                    OR descripcion like @TEXTO
+                    WHERE producto.codigo like @TEXTO
+                    OR producto.descripcion like @TEXTO
                     OR categoria.nombre like @TEXTO
                     OR marca.nombre like @TEXTO                    
                 ";
@@ -46,14 +47,33 @@ namespace mercado.dao
                         o.Marca = reader.GetString(2);
                         o.Categoria = reader.GetString(3);
                         o.Descripcion = reader.GetString(4);
-                        o.Cantidad_minima = reader.GetDouble(5);
-                        o.Precio = reader.GetDouble(6);
+                        o.Cantidad_minima = Convert.ToDouble(reader.GetValue(5));
+                        o.Precio = Convert.ToDouble(reader.GetValue(6));
                         lista.Add(o);
                     }
                 }
             }
             return lista;
+        }
 
+        public void agregar(Producto producto)
+        {
+            using (SqlConnection conn = DAOFactory.getConnection())
+            {
+                string sql = @"
+                    INSERT INTO producto (codigo, cantidad_minima, precio, descripcion, categoria_id, marca_id) 
+                    VALUES (@codigo, @cantidad_minima, @precio, @descripcion, @categoria_id, @marca_id)
+                ";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@codigo", SqlDbType.VarChar).Value = producto.Codigo;
+                cmd.Parameters.Add("@cantidad_minima", SqlDbType.Real).Value = producto.Cantidad_minima;
+                cmd.Parameters.Add("@precio", SqlDbType.Real).Value = producto.Precio;
+                cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = producto.Descripcion;
+                cmd.Parameters.Add("@categoria_id", SqlDbType.Int).Value = producto.Categoria_id;
+                cmd.Parameters.Add("@marca_id", SqlDbType.Int).Value = producto.Marca_id;
+
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

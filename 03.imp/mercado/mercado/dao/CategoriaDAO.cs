@@ -8,23 +8,28 @@ using System.Threading.Tasks;
 
 namespace mercado.dao
 {
-    class UnidadDAO
+    class CategoriaDAO
     {
-        public List<Unidad> getAll()
+        public List<Categoria> getAll()
         {
-            List<Unidad> lista = new List<Unidad>();
+            List<Categoria> lista = new List<Categoria>();
             using (SqlConnection conn = DAOFactory.getConnection())
             {
-                SqlCommand cmd = new SqlCommand("select id,nombre from unidad", conn);
+                string sql = @"
+                    SELECT id, nombre
+                    FROM categoria
+                ";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    Unidad u;
+                    Categoria o;
                     while (reader.Read())
                     {
-                        u = new Unidad();
-                        u.id = reader.GetString(0);
-                        u.nombre = reader.GetString(1);
-                        lista.Add(u);
+                        o = new Categoria();
+                        o.Id = reader.GetInt32(0);
+                        o.Nombre = reader.GetString(1);
+                        lista.Add(o);
                     }
                 }
             }

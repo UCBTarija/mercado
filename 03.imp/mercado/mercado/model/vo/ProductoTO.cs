@@ -2,7 +2,7 @@
 
 namespace mercado.model.vo
 {
-    class ProductoTO
+    public class ProductoTO
     {
         private int _id;
         private string _codigo;

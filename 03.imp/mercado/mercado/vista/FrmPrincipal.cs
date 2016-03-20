@@ -1,6 +1,7 @@
 ﻿using mercado.dao;
 using mercado.model;
 using mercado.model.vo;
+using mercado.vista.producto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,13 +21,11 @@ namespace mercado
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void listaDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<ProductoTO> lista = Producto.getAll("xxx");
-            BindingSource bs = new BindingSource();
-            bs.DataSource = lista;
-            dataGridView1.DataSource = bs;
-
+            FrmListaProd lista = new FrmListaProd();
+            lista.MdiParent = this;
+            lista.Show();
         }
     }
 }

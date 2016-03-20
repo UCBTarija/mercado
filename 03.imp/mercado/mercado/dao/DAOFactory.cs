@@ -26,5 +26,10 @@ namespace mercado.dao
         {
             return new ProductoDAO();
         }
+
+        public static CategoriaDAO getCategoriaDAO()
+        {
+            return new CategoriaDAO();
+        }
     }
 }
