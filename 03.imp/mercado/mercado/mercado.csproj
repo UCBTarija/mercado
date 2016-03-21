@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dao\MarcaDAO.cs" />
     <Compile Include="model\Categoria.cs" />
     <Compile Include="dao\CategoriaDAO.cs" />
     <Compile Include="dao\DAOFactory.cs" />

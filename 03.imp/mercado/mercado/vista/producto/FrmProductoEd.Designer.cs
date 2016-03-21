@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label label7;
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtMarca = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -41,12 +41,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtPrecioUnitario = new System.Windows.Forms.TextBox();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
+            this.cboMarca = new System.Windows.Forms.ComboBox();
+            label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(493, 362);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Location = new System.Drawing.Point(477, 254);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(100, 28);
             this.btnGuardar.TabIndex = 0;
@@ -56,8 +58,8 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(167, 37);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigo.Location = new System.Drawing.Point(151, 13);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(132, 22);
             this.txtCodigo.TabIndex = 1;
@@ -65,7 +67,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 41);
+            this.label1.Location = new System.Drawing.Point(17, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
@@ -75,25 +77,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 85);
+            this.label2.Location = new System.Drawing.Point(17, 46);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Categoría";
             // 
-            // txtMarca
-            // 
-            this.txtMarca.Location = new System.Drawing.Point(167, 128);
-            this.txtMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(132, 22);
-            this.txtMarca.TabIndex = 5;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 132);
+            this.label3.Location = new System.Drawing.Point(17, 77);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 17);
@@ -103,7 +97,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 176);
+            this.label4.Location = new System.Drawing.Point(17, 108);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 17);
@@ -112,17 +106,17 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(167, 172);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcion.Location = new System.Drawing.Point(151, 105);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(453, 69);
+            this.txtDescripcion.Size = new System.Drawing.Size(426, 69);
             this.txtDescripcion.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 263);
+            this.label5.Location = new System.Drawing.Point(17, 185);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 17);
@@ -131,8 +125,8 @@
             // 
             // txtCantidadMinima
             // 
-            this.txtCantidadMinima.Location = new System.Drawing.Point(167, 263);
-            this.txtCantidadMinima.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCantidadMinima.Location = new System.Drawing.Point(151, 182);
+            this.txtCantidadMinima.Margin = new System.Windows.Forms.Padding(4);
             this.txtCantidadMinima.Name = "txtCantidadMinima";
             this.txtCantidadMinima.Size = new System.Drawing.Size(132, 22);
             this.txtCantidadMinima.TabIndex = 10;
@@ -140,7 +134,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(40, 308);
+            this.label6.Location = new System.Drawing.Point(17, 215);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 17);
@@ -149,8 +143,8 @@
             // 
             // txtPrecioUnitario
             // 
-            this.txtPrecioUnitario.Location = new System.Drawing.Point(167, 304);
-            this.txtPrecioUnitario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrecioUnitario.Location = new System.Drawing.Point(151, 212);
+            this.txtPrecioUnitario.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecioUnitario.Name = "txtPrecioUnitario";
             this.txtPrecioUnitario.Size = new System.Drawing.Size(132, 22);
             this.txtPrecioUnitario.TabIndex = 12;
@@ -159,17 +153,37 @@
             // 
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(168, 86);
-            this.cboCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboCategoria.Location = new System.Drawing.Point(151, 43);
+            this.cboCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(424, 24);
             this.cboCategoria.TabIndex = 13;
+            // 
+            // cboMarca
+            // 
+            this.cboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMarca.FormattingEnabled = true;
+            this.cboMarca.Location = new System.Drawing.Point(151, 74);
+            this.cboMarca.Name = "cboMarca";
+            this.cboMarca.Size = new System.Drawing.Size(424, 24);
+            this.cboMarca.TabIndex = 14;
+            // 
+            // label7
+            // 
+            label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            label7.Location = new System.Drawing.Point(12, 248);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(594, 2);
+            label7.TabIndex = 15;
+            label7.Text = "label7";
             // 
             // FrmProductoEd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 407);
+            this.ClientSize = new System.Drawing.Size(613, 288);
+            this.Controls.Add(label7);
+            this.Controls.Add(this.cboMarca);
             this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.txtPrecioUnitario);
             this.Controls.Add(this.label6);
@@ -178,13 +192,12 @@
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.btnGuardar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmProductoEd";
@@ -201,7 +214,6 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDescripcion;
@@ -210,5 +222,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPrecioUnitario;
         private System.Windows.Forms.ComboBox cboCategoria;
+        private System.Windows.Forms.ComboBox cboMarca;
     }
 }

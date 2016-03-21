@@ -32,7 +32,7 @@ namespace mercado.vista.producto
             atributo Id
             */
             p.Categoria_id = (cboCategoria.SelectedItem as Categoria).Id;
-            p.Marca_id = Convert.ToInt32(txtMarca.Text);
+            p.Marca_id = (cboMarca.SelectedItem as Marca).Id;
             p.Descripcion = txtDescripcion.Text;
             p.Cantidad_minima = Convert.ToDouble(txtCantidadMinima.Text);
             p.Precio = Convert.ToDouble(txtPrecioUnitario.Text);
@@ -50,12 +50,17 @@ namespace mercado.vista.producto
             Inicializamos un objeto BindingSource para poder utilizar
             la lista de objetos Categoría en el ComboBox*/
 
-            BindingSource bs = new BindingSource();
-            bs.DataSource = Categoria.getAll();
-            cboCategoria.DataSource = bs;
+            BindingSource bsCat = new BindingSource();
+            bsCat.DataSource = Categoria.getAll();
+            cboCategoria.DataSource = bsCat;
             /*se indica explícitamente cual miembro del objeto
             se mostrará en la lista*/
             cboCategoria.DisplayMember = "Nombre";
+
+            BindingSource bsMarca = new BindingSource();
+            bsMarca.DataSource = Marca.getAll();
+            cboMarca.DataSource = bsMarca;
+            cboMarca.DisplayMember = "Nombre";
         }
     }
 }
