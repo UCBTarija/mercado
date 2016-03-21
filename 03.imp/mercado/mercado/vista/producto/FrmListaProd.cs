@@ -21,7 +21,9 @@ namespace mercado.vista.producto
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            //carga la lista de productos
             List<ProductoTO> lista = Producto.buscar(txtBuscar.Text);
+            //inicializa el objeto que proporcionará los datos de la lista al grid
             BindingSource bs = new BindingSource();
             bs.DataSource = lista;
             gridProductos.DataSource = bs;
@@ -37,10 +39,12 @@ namespace mercado.vista.producto
         {
             if (gridProductos.SelectedRows.Count > 0)
             {
+                //obtiene el productoTO seleccionado
                 ProductoTO selected = (gridProductos.SelectedRows[0].DataBoundItem as ProductoTO);
+                //carga el producto en base a productoTO.id seleccionado
                 Producto producto = Producto.getById(selected.Id);
 
-
+                //inicializa la ventana de edición y le pasa el producto a modificar
                 FrmProductoEd productoEd = new FrmProductoEd();
                 productoEd.modificar(producto);
             }
