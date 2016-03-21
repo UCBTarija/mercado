@@ -30,7 +30,25 @@ namespace mercado.vista.producto
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             FrmProductoEd edit = new FrmProductoEd();
-            edit.ShowDialog();
+            edit.nuevo();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (gridProductos.SelectedRows.Count > 0)
+            {
+                ProductoTO selected = (gridProductos.SelectedRows[0].DataBoundItem as ProductoTO);
+                Producto producto = Producto.getById(selected.Id);
+
+
+                FrmProductoEd productoEd = new FrmProductoEd();
+                productoEd.modificar(producto);
+            }
+        }
+
+        private void gridProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnModificar.PerformClick();
         }
     }
 }

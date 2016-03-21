@@ -75,5 +75,65 @@ namespace mercado.dao
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public void modificar(Producto producto)
+        {
+            using (SqlConnection conn = DAOFactory.getConnection())
+            {
+                string sql = @"
+                    UPDATE producto SET
+                      codigo = @codigo,
+                      cantidad_minima = @cantidad_minima,
+                      precio = @precio,
+                      descripcion = @descripcion,
+                      categoria_id = @categoria_id,
+                      marca_id = @marca_id
+                    WHERE id = @id
+                ";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@codigo", SqlDbType.VarChar).Value = producto.Codigo;
+                cmd.Parameters.Add("@cantidad_minima", SqlDbType.Real).Value = producto.Cantidad_minima;
+                cmd.Parameters.Add("@precio", SqlDbType.Real).Value = producto.Precio;
+                cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = producto.Descripcion;
+                cmd.Parameters.Add("@categoria_id", SqlDbType.Int).Value = producto.Categoria_id;
+                cmd.Parameters.Add("@marca_id", SqlDbType.Int).Value = producto.Marca_id;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = producto.Id;
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public Producto getById(int id)
+        {
+            Producto o = null;
+            using (SqlConnection conn = DAOFactory.getConnection())
+            {
+                string sql = @"
+                    SELECT id, codigo, marca_id,
+                        categoria_id,descripcion,
+                        cantidad_minima,precio
+                    FROM producto
+                    WHERE id = @id
+                ";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        o = new Producto();
+                        o.Id = reader.GetInt32(0);
+                        o.Codigo = reader.GetString(1);
+                        o.Marca_id = reader.GetInt32(2);
+                        o.Categoria_id = reader.GetInt32(3);
+                        o.Descripcion = reader.GetString(4);
+                        o.Cantidad_minima = Convert.ToDouble(reader.GetValue(5));
+                        o.Precio = Convert.ToDouble(reader.GetValue(6));
+                    }
+                }
+            }
+            return o;
+        }
     }
 }

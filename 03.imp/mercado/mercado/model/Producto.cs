@@ -23,9 +23,19 @@ namespace mercado.model
             DAOFactory.getProductoDAO().agregar(this);
         }
 
+        public void modificar()
+        {
+            DAOFactory.getProductoDAO().modificar(this);
+        }
+
         public static List<ProductoTO> buscar(string texto)
         {
             return DAOFactory.getProductoDAO().buscar(texto);
+        }
+
+        public static Producto getById(int id)
+        {
+            return DAOFactory.getProductoDAO().getById(id);
         }
 
         public int Id
