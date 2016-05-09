@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mercado.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +29,13 @@ namespace mercado.vista.ventas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            Venta venta = new Venta();
+            venta.Fecha = dtpFecha.Value;
+            venta.Suma_items = Convert.ToDouble(txtSubtotal.Text);
+            venta.Descuento = Convert.ToDouble(txtDescuento.Text);
+            venta.Importe = Convert.ToDouble(txtImporte.Text);
+
+
 
         }
     }
