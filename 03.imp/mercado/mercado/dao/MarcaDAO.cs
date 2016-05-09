@@ -10,7 +10,7 @@ namespace mercado.dao
 {
     class MarcaDAO
     {
-        public List<Marca> getAll()
+        public  List<Marca> getAll()
         {
             List<Marca> lista = new List<Marca>();
             using (SqlConnection conn = DAOFactory.getConnection())
