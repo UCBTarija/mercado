@@ -31,7 +31,7 @@ namespace mercado
 
         private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmVentaEd frmVenta = new FrmVentaEd();
+            FrmVentaEd frmVenta = new FrmVentaEd(); 
             frmVenta.MdiParent = this;
             frmVenta.Dock = DockStyle.Fill;
             frmVenta.nuevaVenta();
