@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ namespace mercado.dao
     {
         public static SqlConnection getConnection()
         {
+            System.Windows.Forms.MessageBox.Show(Properties.Settings.Default.db);
+            
             SqlConnection conn = new SqlConnection(
                 @"Server=localhost\SQLExpress; Database=mercado; User Id=sa; Password=Tarija2016");
             conn.Open();
@@ -40,6 +43,21 @@ namespace mercado.dao
         public static VentaDAO getVentaDAO()
         {
             return new VentaDAO();
+        }
+
+        public static CompraDAO getCompraDAO()
+        {
+            return new CompraDAO();
+        }
+
+        public static IngresoDAO getIngresoDAO()
+        {
+            return new IngresoDAO();
+        }
+
+        public static SalidaDAO getSalidaDAO()
+        {
+            return new SalidaDAO();
         }
     }
 }

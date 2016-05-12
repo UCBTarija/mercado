@@ -45,7 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dao\CompraDAO.cs" />
+    <Compile Include="dao\IngresoDAO.cs" />
     <Compile Include="dao\MarcaDAO.cs" />
+    <Compile Include="dao\SalidaDAO.cs" />
     <Compile Include="dao\VentaDAO.cs" />
     <Compile Include="model\Categoria.cs" />
     <Compile Include="dao\CategoriaDAO.cs" />
@@ -66,10 +69,10 @@
     <Compile Include="model\Unidad.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="model\FrmListaProd.cs">
+    <Compile Include="vista\producto\FrmListaProd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="model\FrmListaProd.Designer.cs">
+    <Compile Include="vista\producto\FrmListaProd.Designer.cs">
       <DependentUpon>FrmListaProd.cs</DependentUpon>
     </Compile>
     <Compile Include="vista\producto\FrmProductoEd.cs">
@@ -96,7 +99,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="model\FrmListaProd.resx">
+    <EmbeddedResource Include="vista\producto\FrmListaProd.resx">
       <DependentUpon>FrmListaProd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vista\producto\FrmProductoEd.resx">
@@ -122,7 +125,11 @@
     <Content Include="data\database.sql" />
     <Content Include="data\datos.sql" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="vista\compras\" />
+    <Folder Include="vista\ingresos\" />
+    <Folder Include="vista\salidas\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
