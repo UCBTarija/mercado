@@ -2,8 +2,20 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="mercado.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="db" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">hola</Value>
+    <Setting Name="servidor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost\SQLExpress</Value>
+    </Setting>
+    <Setting Name="basedatos" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mercado</Value>
+    </Setting>
+    <Setting Name="usuario" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sa</Value>
+    </Setting>
+    <Setting Name="clave" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Tarija2016</Value>
+    </Setting>
+    <Setting Name="integrada" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

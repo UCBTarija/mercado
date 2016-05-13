@@ -12,10 +12,23 @@ namespace mercado.dao
     {
         public static SqlConnection getConnection()
         {
-            System.Windows.Forms.MessageBox.Show(Properties.Settings.Default.db);
-            
-            SqlConnection conn = new SqlConnection(
-                @"Server=localhost\SQLExpress; Database=mercado; User Id=sa; Password=Tarija2016");
+            StringBuilder dsn = new StringBuilder();
+
+            dsn.Append("Server=").Append(Properties.Settings.Default.servidor).Append(";");
+            dsn.Append("Database=").Append(Properties.Settings.Default.basedatos).Append(";");
+
+            if (Properties.Settings.Default.integrada)
+            {
+                dsn.Append("Integrated Security=true");
+            } else
+            {
+                dsn.Append("User Id=").Append(Properties.Settings.Default.usuario).Append(";");
+                dsn.Append("Password=").Append(Properties.Settings.Default.clave).Append(";");
+            }
+
+            SqlConnection conn = new SqlConnection(dsn.ToString());
+
+            //    @"Server=localhost\SQLExpress; Database=mercado; User Id=sa; Password=Tarija2016");
             conn.Open();
             return conn;
         }

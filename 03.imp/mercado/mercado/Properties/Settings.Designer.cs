@@ -25,10 +25,46 @@ namespace mercado.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("hola")]
-        public string db {
+        [global::System.Configuration.DefaultSettingValueAttribute("localhost\\SQLExpress")]
+        public string servidor {
             get {
-                return ((string)(this["db"]));
+                return ((string)(this["servidor"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("mercado")]
+        public string basedatos {
+            get {
+                return ((string)(this["basedatos"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sa")]
+        public string usuario {
+            get {
+                return ((string)(this["usuario"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Tarija2016")]
+        public string clave {
+            get {
+                return ((string)(this["clave"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool integrada {
+            get {
+                return ((bool)(this["integrada"]));
             }
         }
     }
