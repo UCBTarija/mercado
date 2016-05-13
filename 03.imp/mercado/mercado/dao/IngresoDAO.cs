@@ -8,5 +8,7 @@ namespace mercado.dao
 {
     class IngresoDAO
     {
+
+
     }
 }
