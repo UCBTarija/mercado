@@ -39,11 +39,11 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtSubtotal = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtDescuento = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtImporte = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtImporte = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -143,21 +143,21 @@
             this.panel1.Size = new System.Drawing.Size(496, 83);
             this.panel1.TabIndex = 10;
             // 
-            // label4
+            // label6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(341, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Subtotal";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(356, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Total";
             // 
-            // txtDescuento
+            // txtImporte
             // 
-            this.txtDescuento.Location = new System.Drawing.Point(394, 32);
-            this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(100, 20);
-            this.txtDescuento.TabIndex = 11;
+            this.txtImporte.Location = new System.Drawing.Point(393, 61);
+            this.txtImporte.Name = "txtImporte";
+            this.txtImporte.Size = new System.Drawing.Size(100, 20);
+            this.txtImporte.TabIndex = 13;
             // 
             // label5
             // 
@@ -168,27 +168,27 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Descuento";
             // 
-            // txtImporte
+            // txtDescuento
             // 
-            this.txtImporte.Location = new System.Drawing.Point(393, 61);
-            this.txtImporte.Name = "txtImporte";
-            this.txtImporte.Size = new System.Drawing.Size(100, 20);
-            this.txtImporte.TabIndex = 13;
+            this.txtDescuento.Location = new System.Drawing.Point(394, 32);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(100, 20);
+            this.txtDescuento.TabIndex = 11;
             // 
-            // label6
+            // label4
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(356, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Total";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(341, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Subtotal";
             // 
             // FrmVentaEd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 394);
+            this.ClientSize = new System.Drawing.Size(584, 394);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
