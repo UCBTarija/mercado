@@ -48,6 +48,11 @@ namespace mercado.model
             return DAOFactory.getProductoDAO().getById(id);
         }
 
+        public static Producto getByCodigo(string codigo)
+        {
+            return DAOFactory.getProductoDAO().getByCodigo(codigo);
+        }
+
         public int Id
         {
             get

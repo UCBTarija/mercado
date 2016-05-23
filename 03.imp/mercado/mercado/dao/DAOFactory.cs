@@ -33,11 +33,6 @@ namespace mercado.dao
             return conn;
         }
 
-        public static UnidadDAO getUnidadDAO()
-        {
-            return new UnidadDAO();
-        }
-
         public static ProductoDAO getProductoDAO()
         {
             return new ProductoDAO();
@@ -71,6 +66,11 @@ namespace mercado.dao
         public static SalidaDAO getSalidaDAO()
         {
             return new SalidaDAO();
+        }
+
+        public static ClienteDAO getClienteDAO()
+        {
+            return new ClienteDAO();
         }
     }
 }

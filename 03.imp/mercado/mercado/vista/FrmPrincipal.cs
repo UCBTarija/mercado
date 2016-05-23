@@ -33,7 +33,13 @@ namespace mercado
         {
             FrmVentaEd frmVenta = new FrmVentaEd(); 
             frmVenta.MdiParent = this;
-            frmVenta.Dock = DockStyle.Fill;
+
+            Rectangle bounds = this.ClientRectangle;
+            bounds.Width -= SystemInformation.Border3DSize.Width * 2;
+            bounds.Height -= SystemInformation.Border3DSize.Height * 2 + menuStrip1.Height;
+            frmVenta.Bounds = bounds;
+
+            frmVenta.Location = new Point(0, 0);
             frmVenta.nuevaVenta();
         }
     }

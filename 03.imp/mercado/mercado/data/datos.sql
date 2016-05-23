@@ -135,3 +135,4 @@ from
 	(select *
 	from detalle_transaccion) xx
 
+*/

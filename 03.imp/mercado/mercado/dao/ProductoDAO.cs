@@ -136,6 +136,39 @@ namespace mercado.dao
             return o;
         }
 
+        public Producto getByCodigo(string codigo)
+        {
+            Producto o = null;
+            using (SqlConnection conn = DAOFactory.getConnection())
+            {
+                string sql = @"
+                    SELECT id, codigo, marca_id,
+                        categoria_id,descripcion,
+                        cantidad_minima,precio
+                    FROM producto
+                    WHERE codigo = @codigo
+                ";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@codigo", SqlDbType.VarChar).Value = codigo;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        o = new Producto();
+                        o.Id = reader.GetInt32(0);
+                        o.Codigo = reader.GetString(1);
+                        o.Marca_id = reader.GetInt32(2);
+                        o.Categoria_id = reader.GetInt32(3);
+                        o.Descripcion = reader.GetString(4);
+                        o.Cantidad_minima = Convert.ToDouble(reader.GetValue(5));
+                        o.Precio = Convert.ToDouble(reader.GetValue(6));
+                    }
+                }
+            }
+            return o;
+        }
+
         public double getSaldo(int producto_id)
         {
             using (SqlConnection conn = DAOFactory.getConnection())
