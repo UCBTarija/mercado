@@ -15,17 +15,12 @@ namespace mercado.model
         private double suma_items;
         private double descuento;
         private double importe;
+        private int cliente_id;
 
         private List<DetalleTransaccion> productos;
 
         public void guardar()
         {
-            //calcula el nuevo saldo de cada producto
-            foreach(DetalleTransaccion item in this.productos)
-            {
-                item.Saldo_cantidad = Producto.getSaldo(item.Producto_id);
-            }
-
             DAOFactory.getVentaDAO().guardarVenta(this);
         }
 
@@ -104,6 +99,19 @@ namespace mercado.model
             set
             {
                 productos = value;
+            }
+        }
+
+        public int Cliente_id
+        {
+            get
+            {
+                return cliente_id;
+            }
+
+            set
+            {
+                cliente_id = value;
             }
         }
     }

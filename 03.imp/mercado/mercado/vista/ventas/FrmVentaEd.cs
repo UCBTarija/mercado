@@ -18,10 +18,13 @@ namespace mercado.vista.ventas
         public FrmVentaEd()
         {
             InitializeComponent();
+
             gridProductos.Columns["colDescripcion"].DefaultCellStyle.BackColor = SystemColors.ControlLight;
             gridProductos.Columns["colDisponible"].DefaultCellStyle.BackColor = SystemColors.ControlLight;
             gridProductos.Columns["colPrecioU"].DefaultCellStyle.BackColor = SystemColors.ControlLight;
             gridProductos.Columns["colTotal"].DefaultCellStyle.BackColor = SystemColors.ControlLight;
+
+            txtDescuento.Text = "0";
         }
 
         public void nuevaVenta()
@@ -30,17 +33,45 @@ namespace mercado.vista.ventas
             this.Show();
         }
 
+        private void validar()
+        {
+
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            validar();
+
             Venta venta = new Venta();
             venta.Fecha = dtpFecha.Value;
-
+            venta.Cliente_id = this.cliente.Id;
             venta.Suma_items = Convert.ToDouble(txtSubtotal.Text);
             venta.Descuento = Convert.ToDouble(txtDescuento.Text);
             venta.Importe = Convert.ToDouble(txtImporte.Text);
 
+            venta.Productos = new List<DetalleTransaccion>();            
 
+            for(int i=0; i<gridProductos.Rows.Count - 1; i++)
+            {
+                string codigo = gridProductos.Rows[i].Cells["colCodigo"].Value.ToString();
+                string strCantidad = gridProductos.Rows[i].Cells["colCantidad"].Value.ToString();
+                int cantidad = Convert.ToInt32(strCantidad);
 
+                Producto p = Producto.getByCodigo(codigo);
+
+                DetalleTransaccion dt = new DetalleTransaccion();
+                dt.Producto_id = p.Id;
+                dt.Cantidad = cantidad;
+                dt.Precio_u = p.Precio;
+                dt.Saldo_cantidad = p.getSaldo() - cantidad;
+                dt.Subtotal = p.Precio * cantidad;
+
+                venta.Productos.Add(dt);
+            }
+
+            venta.guardar();
+
+            Close();
         }
 
         private void txtNit_Validating(object sender, CancelEventArgs e)
@@ -102,13 +133,26 @@ namespace mercado.vista.ventas
                     gridProductos.Rows[e.RowIndex].Cells["colTotal"].Value = 0;
                 }
             }
+
+            calcularTotal();
         }
 
-        private void gridProductos_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        private void calcularTotal()
         {
+            double suma_items = 0;
 
+            for (int i =0; i<gridProductos.Rows.Count - 1; i++)
+            {
+                suma_items += Convert.ToDouble(gridProductos.Rows[i].Cells["colTotal"].Value);
+            }
+
+            txtSubtotal.Text = suma_items.ToString();
+            double descuento = Convert.ToDouble(txtDescuento.Text);
+            double total = suma_items - descuento;
+            txtImporte.Text = total.ToString();
         }
 
+        
         private void gridProductos_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (gridProductos.Columns[e.ColumnIndex].ReadOnly)
@@ -117,9 +161,19 @@ namespace mercado.vista.ventas
             }
         }
 
-        private void gridProductos_KeyUp(object sender, KeyEventArgs e)
+        private void txtDescuento_Validating(object sender, CancelEventArgs e)
         {
-
+            if (txtDescuento.Text.Length > 0)
+            {
+                double descuento;
+                if(!Double.TryParse(txtDescuento.Text, out descuento)){
+                    txtDescuento.Text = "0";
+                    MessageBox.Show("Valor introducido inválido");
+                } else
+                {
+                    calcularTotal();
+                }
+            }
         }
     }
 }
