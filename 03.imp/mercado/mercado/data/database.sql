@@ -1,4 +1,5 @@
-﻿drop table detalle_transaccion;
+﻿create database mercado
+drop table detalle_transaccion;
 drop table venta;
 drop table compra;
 drop table ingreso;
@@ -9,6 +10,7 @@ drop table producto;
 drop table categoria;
 drop table marca;
 
+use mercado;
 CREATE TABLE categoria (
 	id INT IDENTITY NOT NULL PRIMARY KEY,
 	nombre VARCHAR (30) NOT NULL

@@ -14,7 +14,9 @@ namespace mercado.vista.ventas
     public partial class FrmVentaEd : Form
     {
         private Cliente cliente = null;
-
+        BindingSource bsClientes = new BindingSource();
+        BindingSource bsProductos = new BindingSource();
+        
         public FrmVentaEd()
         {
             InitializeComponent();
@@ -25,6 +27,10 @@ namespace mercado.vista.ventas
             gridProductos.Columns["colTotal"].DefaultCellStyle.BackColor = SystemColors.ControlLight;
 
             txtDescuento.Text = "0";
+
+            
+
+
         }
 
         public void nuevaVenta()
@@ -174,6 +180,58 @@ namespace mercado.vista.ventas
                     calcularTotal();
                 }
             }
+        }
+
+        Producto p = new Producto();
+        private void txtCodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                
+                bsProductos.DataSource = Producto.getByCodigo(txtCodigo.Text);
+                if (bsProductos.DataSource != null)
+                {
+                    txtProducto.DataBindings.Add("TEXT", bsProductos.DataSource, "Descripcion");
+                    p = (Producto)bsProductos.DataSource;
+                    txtProducto.Focus();
+                }
+                else
+                    MessageBox.Show("PRODUCTO NO ENCONTRADO");
+                
+            }
+           
+        }
+
+        
+        private void txtNit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                
+                bsClientes.DataSource = Cliente.getByNumDoc(Convert.ToInt64(txtNit.Text));
+                if (bsClientes.DataSource != null)
+                {
+                    txtNombre.DataBindings.Add("TEXT", bsClientes.DataSource, "Nombre");
+                    txtCodigo.Focus();
+                    
+                }
+                else
+                    MessageBox.Show("CLIENTE NO ENCONTRADO");
+                bsClientes.DataSource = null;
+            }
+            
+            
+        }
+
+        private void txtProducto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                gridProductos.Rows.Add(p.Codigo, p.Descripcion, "SI", p.Precio, 1, p.Precio);
+
+
+            }
+            
         }
     }
 }

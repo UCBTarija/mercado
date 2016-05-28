@@ -1,5 +1,6 @@
 ﻿USE mercado;
 
+select * from categoria;
 insert into categoria(nombre) values
 ('LÁCTEOS'),
 ('FIAMBRES'),

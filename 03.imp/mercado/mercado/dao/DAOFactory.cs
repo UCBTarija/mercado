@@ -12,8 +12,9 @@ namespace mercado.dao
     {
         public static SqlConnection getConnection()
         {
-            StringBuilder dsn = new StringBuilder();
-
+            //StringBuilder dsn = new StringBuilder();
+            
+            /*
             dsn.Append("Server=").Append(Properties.Settings.Default.servidor).Append(";");
             dsn.Append("Database=").Append(Properties.Settings.Default.basedatos).Append(";");
 
@@ -24,11 +25,11 @@ namespace mercado.dao
             {
                 dsn.Append("User Id=").Append(Properties.Settings.Default.usuario).Append(";");
                 dsn.Append("Password=").Append(Properties.Settings.Default.clave).Append(";");
-            }
+            }*/
 
-            SqlConnection conn = new SqlConnection(dsn.ToString());
+            SqlConnection conn = new SqlConnection(@"Server=DESKTOP-IB5GU4S; Database=mercado; Integrated Security=true");
+            
 
-            //    @"Server=localhost\SQLExpress; Database=mercado; User Id=sa; Password=Tarija2016");
             conn.Open();
             return conn;
         }
